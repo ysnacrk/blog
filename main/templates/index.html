@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Index</title>
+
+
+    <style>
+        body{
+            background-color: #344766;
+        }
+
+        .warpper{
+            margin: auto ;
+            width: 800px;
+        }
+
+        .top-menu{
+            background-color: #253f6a;
+            padding-top: 30px;
+            padding-right: 10px;
+            padding-left: 10px;
+            width: 800px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid white;
+        }
+
+        .top-menu a{
+            color: #fa685e ;
+
+        }
+
+        .content{
+            background-color: #253f6a;
+            width: 800px;
+            border:  2px solid white;
+            padding: 10px;
+            color : white;
+            top: 100px;
+            bottom: 10px;
+            position: absolute;
+        }
+        
+        a{
+            text-decoration: none;
+            font-size:  20px;
+            color: white;
+        }
+        h1{
+            color : #fa685e ;
+            font-size: 48px;
+            font-weight: normal;  
+        }
+
+        .post span{
+            color:#fa685e;
+            font-size: 25px;
+            padding-right: 10px;
+        }
+        .post a{
+            text-decoration: underline;
+            text-decoration-color: #f8948d;
+            color : white;
+            font-weight: bold ;
+            font-size: 25px;
+        }
+        .tagline {
+ 
+            color: #d3d3d3;
+             
+            }
+
+
+    </style>
+</head>
+<body>
+
+            <div class="warpper">
+          
+                <div class="top-menu">
+                    <a href="">👽 Hakkımda</a>
+                    <a href="">💻 Projeler</a>
+                    <a href="">📪 İletişim</a>
+                </div>
+
+                <div class="content">
+   
+                    <h1>Blog Yazıları</h1>
+                    {% if current_user.is_authenticated %}
+                        <a href="{{url_for('add_post')}}"></a>
+                    {% endif%}
+                    <div class="post">    
+                        {% for post in posts %}
+
+                            <span><b>▶ </b></span>
+                            <a href="/post/{{post.id}}/{{post.slug}}" >{{ post.title }}  </a>
+                            <br>
+                            <br>
+                            
+                        {%endfor%}
+                    </div>
+                </div>
+                        
+            </div>
+</body>
+</html>

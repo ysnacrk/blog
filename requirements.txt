@@ -1,0 +1,7 @@
+Flask
+Flask-WTF
+flask-sqlalchemy
+flask-bcrypt
+flask-login
+Flask-CKEditor
+python-slugify
