@@ -22,7 +22,9 @@ app.config['SECRET_KEY'] =  'c3fd3ca1d862453e82b5f62641a51d4d'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['CKEDITOR_ENABLE_CODESNIPPET'] = True
 app.config['WTF_CSRF_TIME_LIMIT'] = None
-app.secret_key = 'c3fd3ca1d862453e82b5f62641a51d4d'
+app.config['RECAPTCHA_PRIVATE_KEY'] = ''
+app.config['RECAPTCHA_PUBLIC_KEY'] = ''
+
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
