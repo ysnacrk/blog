@@ -20,11 +20,16 @@ def about():
 @app.route("/post/<int:post_id>/<string:slug>") 
 def get_post(post_id , slug):
     post = Post.query.filter_by(id = post_id).first()
+    prev_post = Post.query.filter_by(id = post_id - 1).first()
+    next_post = Post.query.filter_by(id = post_id + 1).first()
+
 
     if post:
-        return render_template('post.html' , post = post)
+        return render_template('post.html' , post = post , prev = prev_post , next = next_post)
     else:
         return render_template('error.html' , error = 'Page is not found')
+
+
 
 @app.route("/login" , methods = ['GET' , 'POST'])
 def login():
