@@ -1,112 +1,103 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
     <title>Index</title>
 
 
     <style>
+
         body{
-            background-color: #344766;
+            background-color: #222222;
+            font-family: 'VT323', monospace;
         }
-
-        .warpper{
-            margin: auto ;
-            width: 800px;
-        }
-
-        .top-menu{
-            background-color: #253f6a;
-            padding-top: 30px;
-            padding-right: 10px;
-            padding-left: 10px;
-            width: 800px;
-            height: 50px;
-            display: flex;
-            justify-content: space-between;
-            border: 2px solid white;
-        }
-
-        .top-menu a{
-            color: #fa685e ;
-
-        }
-
-        .content{
-            background-color: #253f6a;
-            width: 800px;
-            border:  2px solid white;
-            padding: 10px;
-            color : white;
-            top: 100px;
-            bottom: 10px;
-            position: absolute;
-        }
-        
-        a{
+        .navbar-link {
+            color : #ffcc00 ; 
+            font-size: 36px ;
             text-decoration: none;
-            font-size:  20px;
-            color: white;
+
+        }
+        .navbar-link:hover{
+            color : #00b5b4 ; 
+            font-size: 38px ;
+            text-decoration: none;
         }
         h1{
-            color : #fa685e ;
-            font-size: 48px;
-            font-weight: normal;  
+            color : white ;
         }
+        .posts{
+            padding-left:  100px ;
+            padding-top: 50px;
+        }
+        @media only screen and (max-width: 600px) {
 
-        .post span{
-            color:#fa685e;
-            font-size: 25px;
-            padding-right: 10px;
-        }
-        .post a{
-            text-decoration: underline;
-            text-decoration-color: #f8948d;
-            color : white;
-            font-weight: bold ;
-            font-size: 25px;
-        }
-        .tagline {
- 
-            color: #d3d3d3;
-             
+            .posts{
+                padding-left:  10px ;
+                padding-top: 50px;
+                
+            }
+            .posts a {
+                font-size: 24px ;
             }
 
+        }
 
     </style>
 </head>
 <body>
+    <div class="container" style="background-color: #222222;">
+            <nav class="navbar navbar-expand-lg ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" >
+                    <svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="#ffcc00" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+                </button>
 
-            <div class="warpper">
-          
-                <div class="top-menu">
-                    <a href="">👽 Hakkımda</a>
-                    <a href="">💻 Projeler</a>
-                    <a href="">📪 İletişim</a>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo01"  >
+                  
+                  <a class="navbar-brand navbar-link" href="#">👽 HAKKIMDA</a>
+                  <a class="navbar-brand navbar-link" href="#" >💻 PROJELER</a>
+                  <a class="navbar-brand navbar-link" href="#">📪 İLETİŞİM</a>
+
                 </div>
+            </nav>
+        <div class="row"  style="border-bottom: 6px solid #ffcc00 ; ">
 
-                <div class="content">
-   
-                    <h1>Blog Yazıları</h1>
-                    {% if current_user.is_authenticated %}
-                        <a href="{{url_for('add_post')}}"></a>
-                    {% endif%}
-                    <div class="post">    
-                        {% for post in posts %}
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"> <h1> computer engineer / developer </h1> </div>
 
-                            <span><b>▶ </b></span>
-                            <a href="/post/{{post.id}}/{{post.slug}}" >{{ post.title }}  </a>
-                            <br>
-                            <br>
-                            
-                        {%endfor%}
-                    </div>
-                </div>
-                        
-            </div>
+        </div>
+
+        <div class="text-white posts">
+            {% for post in posts %}
+                
+                <a class="navbar-link" href="/post/{{post.id}}/{{post.slug}}" >
+                    <svg width="36" height="36">
+                        <circle cx="18" cy="18" r="15" stroke="red" stroke-width="4" fill="red" />
+                    </svg>  {{ post.title }}  <span class="badge badge-secondary">New</span></a>
+                <br>
+                <br>
+            {%endfor%}
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 </html>

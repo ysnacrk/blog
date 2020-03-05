@@ -16,3 +16,5 @@ class PostForm(FlaskForm):
     title = StringField('Title')
     content = CKEditorField('Body', validators=[DataRequired()])
     submit = SubmitField()
+
+

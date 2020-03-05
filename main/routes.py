@@ -111,7 +111,6 @@ def delete_post(post_id):
 #--------- CKEDITOR UPLOAD -----------
 
 @app.route('/files/<filename>')
-@login_required
 def uploaded_files(filename):
     path = app.config['UPLOADED_PATH']
     return send_from_directory(path, filename)
