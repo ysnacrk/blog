@@ -3,64 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
     <title>{{post.title}}</title>
     {{ ckeditor.load_code_theme() }}
+    
     <style>
-        
         body{
-            background-color: #344766;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.8;
-        }
-        .warpper{
-            background-color: #f3f4f9;
-            margin: auto ;
-            padding: 30px;
-            width: 800px;
-            
-        }
- 
-        a{
-            text-decoration: none;
-            font-size:  20px;
-            color: #344766;
-        }
-        a:active{
-            color : #fa685e;
-        }
-        .header{
-            padding-left: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .top-menu {
-            width: 800px;
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 2px solid #b0b39d;
-            padding-bottom: 15px;
+            background-color : #222222;;
         }
 
-        code{
-            background-color: #f2f2f2;
-            overflow-y: auto;
-        }
-        blockquote{
-            font-style: italic;
-            padding: 10px;
-            border-left: 3px solid #f78a83;
-        }
-        h1{
-            color : #fa685e ;
-        }
-        h3{
-            font-weight: normal;
-        }
-        
-        li{
-            padding-bottom: 10px;
+        .container {
+            width: 878px;
         }
 
         #myBtn {
@@ -73,53 +31,198 @@
             border: none;
             outline: none;
             background-color: #fa685e;
-            color: #344766;
             cursor: pointer;
-            padding: 15px;
+            padding: 10px;
             border-radius: 4px;
-            font-size: 40px;
-          }
+            font-size: 28px;
+            font-family: 'VT323', monospace;
+
+        }
           
-          #myBtn:hover {
-            background-color: #eb9690;
-          }
+        #myBtn:hover {
+            background-color: #ec8e87;
+        }
+
+        .navbar-link {
+            color : #f57c74; 
+            font-size: 36px ;
+            text-decoration: none;
+            font-family: 'VT323', monospace;
+
+        }
+        .navbar-link:hover{
+            color : #00b5b4 ; 
+            font-size: 38px ;
+            text-decoration: none;
+        }
+        .navbar{
+            padding-top : 50px; 
+        }
+
+        .row{
+            color:#fa685e;
+
+            font-family: Red Hat Display;
+            font-style: normal;
+            line-height: 37px;
+            letter-spacing: -0.005em;
+        }
+
+        .row h1{
+            font-size: 48px;
+            font-weight: bold;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .header{
+            padding : 32px ;
+        
+        }
+        p{
+            color:  white;
+            font-family: Red Hat Display;
+            font-style: normal;
+            font-weight: normal;
+            letter-spacing: 0.009em;
+        }
+        .row p{
+            font-size: 24px;
+
+        }
+
+        code{
+            width: 878px;
+            overflow-y: auto;
+        }
+
+        blockquote{
+            font-style: italic;
+            padding: 10px;
+            border-left: 3px solid #f78a83;
+        }
+        
+        img {
+            width: 816px;
+            height: auto;
+        }
+
+        iframe{
+            margin: auto;
+        }
+        @media only screen and (max-width: 600px) {
+            .mobile-container {
+                width: 100%;
+                padding-right: 0;
+                padding-left: 0;
+                margin-right: 0;
+                margin-left: 0;
+
+            }
+            .row h1{
+                font-size: 21px;
+
+            }
+            .row p{
+                 font-size: 14px;
+                 letter-spacing: -0.005em;  
+                 line-height: 2.0em ;
+            }
+            .nav-bar a{
+                padding: 0px;
+                font-size: 20px;
+            }
+
+            .navbar-right{
+                text-align: right;
+            }
+            code{
+                width: 95%;
+            }
+            blockquote{
+                width: 95%;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+            #myBtn {
+                display: none;
+                position: fixed;
+                bottom: 10%;
+                right: 2%;
+                z-index: 99;
+                font-size: 14px;
+                border: none;
+                outline: none;
+                background-color: #fa685e;
+                cursor: pointer;
+                padding: 5px;
+                border-radius: 4px;
+                font-family: 'VT323', monospace;
+
+        }
+
+        
     </style>
 </head>
 <body>
-	<div class="warpper" >
-        <div class="top-menu">
-            {% if prev %}
-                <a href="/post/{{prev.id}}/{{prev.slug}}">↶ back to previous</a>
-            {% else %}
-                <a href="#">↶ back to previous</a>
-            {% endif %}
-            <a href="{{url_for('index')}}">💻 home</a>
-    
-            {% if next %}
-                <a href="/post/{{next.id}}/{{next.slug}}">go to next ↷</a>
-            {% else %}
-                <a href="#">↶ back to previous</a>
-            {% endif %}
-                {% if current_user.is_authenticated%}
-                <a href="/delete/{{post.id}}">Delete</a>
-                <a href="/update_post/{{post.id}}">Update</a>
+    <div class="container mobile-container" >
+        <nav class="navbar d-flex justify-content-between nav-bar">
 
-                {% endif%}
+              {% if prev %}
+              <a class="navbar-brand navbar-link" href="/post/{{prev.id}}/{{prev.slug}}">< prev</a>
+          {% else %}
+              <a class="navbar-brand navbar-link" href="#">< prev</a>
+          {% endif %}
+          <a class="navbar-brand navbar-link" href="{{url_for('index')}}">💻 home</a>
+  
+          {% if next %}
+              <a class="navbar-brand navbar-link" href="/post/{{next.id}}/{{next.slug}}">next ></a>
+          {% else %}
+              <a class="navbar-brand navbar-link navbar-right" href="#">next ></a>
+          {% endif %}
+              {% if current_user.is_authenticated%}
+              <a class="navbar-brand navbar-link" href="/delete/{{post.id}}">Delete</a>
+              <a class="navbar-brand navbar-link" href="/update_post/{{post.id}}">Update</a>
 
+              {% endif%}
+        </nav>
+
+
+        <div class="row header">
+            <h1>
+                {{post.title}}
+            </h1>
+
+            <p>
+                {{post.content|safe}}
+            </p>
         </div>
-        <div class="header" style="background : #253f6a; height : 150px;  margin-top: 50px">
-            <h1 style="color : #fa685e;">{{post.title}}</h1></div>
-        <br>
-        {{post.content|safe}}
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1" >© Copyright 2020 Yasin Acıerik</p>
+
+            <ul class="list-inline" >
+                <li class="list-inline-item"><a href="#">Twitter</a></li>
+                <li class="list-inline-item"><a href="#">Github</a></li>
+            </ul>
+
+        </footer>
 
 
-</div>
+        
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top">🔝
+    </div>
+
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        top
     </button>
 
 
     <script>
+
+        
         //Get the button
         var mybutton = document.getElementById("myBtn");
         
@@ -140,5 +243,7 @@
           document.documentElement.scrollTop = 0;
         }
         </script>
+
 </body>
 </html>
+
