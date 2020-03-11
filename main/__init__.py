@@ -1,10 +1,13 @@
 import os
+import logging
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_ckeditor import CKEditor , CKEditorField 
-from flask_wtf import CSRFProtect  # if you want to enable CSRF protect, uncomment this line
+from flask_wtf import CSRFProtect  
+from logging.handlers import RotatingFileHandler
+
 
 
 app = Flask(__name__)
@@ -16,7 +19,7 @@ app = Flask(__name__)
 app.config['CKEDITOR_SERVE_LOCAL'] = True
 app.config['CKEDITOR_HEIGHT'] = 400
 app.config['CKEDITOR_FILE_UPLOADER'] = 'upload'
-app.config['CKEDITOR_ENABLE_CSRF'] = True  # if you want to enable CSRF protect, uncomment this linE
+app.config['CKEDITOR_ENABLE_CSRF'] = True  
 app.config['UPLOADED_PATH'] = os.path.join(basedir, 'uploads')
 app.config['SECRET_KEY'] =  'c3fd3ca1d862453e82b5f62641a51d4d'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -31,5 +34,12 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 ckeditor = CKEditor(app)
-csrf = CSRFProtect(app)  # if you want to enable CSRF protect, uncomment this line
+csrf = CSRFProtect(app)  
+
+handler = RotatingFileHandler('app.log', maxBytes = 100000, backupCount = 3)
+logger = logging.getLogger('tdm')
+logger.setLevel(logging.INFO)
+logger.addHandler(handler)
+
 from main import routes
+

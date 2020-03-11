@@ -1,11 +1,13 @@
 import os , uuid
 from datetime import datetime
-from main import app , bcrypt , db
+from main import app , bcrypt , db , logger
 from flask import render_template , url_for , redirect , request , send_from_directory
 from main.forms import Login , PostForm
 from main.models import User , Post
 from flask_login import login_user , logout_user , current_user , login_required
 from flask_ckeditor import CKEditorField , upload_fail, upload_success
+from sqlalchemy import asc , desc
+from time import strftime
 
 @app.route("/")
 def index():
@@ -20,9 +22,8 @@ def about():
 @app.route("/post/<int:post_id>/<string:slug>") 
 def get_post(post_id , slug):
     post = Post.query.filter_by(id = post_id).first()
-    prev_post = Post.query.filter_by(id = post_id - 1).first()
-    next_post = Post.query.filter_by(id = post_id + 1).first()
-
+    prev_post = db.session.query(Post).order_by(Post.id.desc()).filter(Post.id < post_id).first()
+    next_post = db.session.query(Post).order_by(Post.id.asc()).filter(Post.id > post_id).first()
 
     if post:
         return render_template('post.html' , post = post , prev = prev_post , next = next_post)
@@ -130,4 +131,8 @@ def upload():
     return upload_success(url=url)
 
 
-
+@app.after_request
+def after_request(response):
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    logger.info(('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status))
+    return response
