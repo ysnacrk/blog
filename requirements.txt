@@ -5,3 +5,4 @@ flask-bcrypt
 flask-login
 Flask-CKEditor
 python-slugify
+flask-paranoid

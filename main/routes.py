@@ -1,9 +1,9 @@
 import os , uuid
 from datetime import datetime
 from main import app , bcrypt , db , logger
-from flask import render_template , url_for , redirect , request , send_from_directory
+from flask import render_template , url_for , redirect , request , send_from_directory , render_template_string
 from main.forms import Login , PostForm
-from main.models import User , Post
+from main.models import User , Post 
 from flask_login import login_user , logout_user , current_user , login_required
 from flask_ckeditor import CKEditorField , upload_fail, upload_success
 from sqlalchemy import asc , desc
@@ -67,6 +67,7 @@ def add_post():
     form = PostForm()
     if form.validate_on_submit():
         post = Post(title = form.title.data , content = form.content.data)
+        post.slug_(str(form.title.data))
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('index'))
@@ -96,6 +97,7 @@ def update_post(post_id):
         post = Post.query.get(post_id)
         post.title = form.title.data 
         post.content = form.content.data
+        post.slug_(str(form.title.data))
         db.session.commit()
         return redirect(url_for('index'))
 
@@ -106,6 +108,7 @@ def delete_post(post_id):
     post = Post.query.get(post_id)
     db.session.delete(post)
     db.session.commit()
+    
     print(post)
     return redirect(url_for('index'))
 
@@ -136,3 +139,4 @@ def after_request(response):
     timestamp = strftime('[%Y-%b-%d %H:%M]')
     logger.info(('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status))
     return response
+

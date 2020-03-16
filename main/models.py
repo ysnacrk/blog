@@ -28,6 +28,8 @@ class Post(db.Model):
         self.content = content
         now = datetime.datetime.now()
         self.created_date = now.strftime("%d %m %Y")
+
+    def slug_(self , title):
         self.slug = slugify(title , separator = '+')
 
 
