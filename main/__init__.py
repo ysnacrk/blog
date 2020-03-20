@@ -55,7 +55,7 @@ logger.setLevel(logging.INFO)
 logger.addHandler(handler)
 
 #secure cookie
-paraonid = Paranoid(app)
+paranoid = Paranoid(app)
 paranoid.redirect_view = '/'
 
 from main import routes
