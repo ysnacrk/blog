@@ -1,0 +1,148 @@
+body{
+    background-color : #222222;;
+}
+
+.container {
+    width: 878px;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 40%;
+    right: 10%;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #fa685e;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 28px;
+    font-family: 'VT323', monospace;
+
+}
+  
+#myBtn:hover {
+    background-color: #ec8e87;
+}
+
+.navbar-link {
+    color : #f57c74; 
+    font-size: 36px ;
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+
+}
+.navbar-link:hover{
+    color : #00b5b4 ; 
+    font-size: 38px ;
+    text-decoration: none;
+}
+.navbar{
+    padding-top : 50px; 
+}
+
+.row{
+    color:#fa685e;
+
+    font-family: Red Hat Display;
+    font-style: normal;
+    line-height: 37px;
+    letter-spacing: -0.005em;
+}
+
+.row h1{
+    font-size: 48px;
+    font-weight: bold;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.header{
+    padding : 32px ;
+
+}
+p{
+    color:  white;
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.009em;
+}
+.row p{
+    font-size: 24px;
+
+}
+
+code{
+    width: 878px;
+    overflow-y: auto;
+}
+
+blockquote{
+    font-style: italic;
+    padding: 10px;
+    border-left: 3px solid #f78a83;
+}
+
+img {
+    width: 816px;
+    height: auto;
+}
+
+iframe{
+    margin: auto;
+}
+@media only screen and (max-width: 600px) {
+    .mobile-container {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+
+    }
+    .row h1{
+        font-size: 21px;
+
+    }
+    .row p{
+         font-size: 14px;
+         letter-spacing: -0.005em;  
+         line-height: 2.0em ;
+    }
+    .nav-bar a{
+        padding: 0px;
+        font-size: 20px;
+    }
+
+    .navbar-right{
+        text-align: right;
+    }
+    code{
+        width: 95%;
+    }
+    blockquote{
+        width: 95%;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 10%;
+        right: 2%;
+        z-index: 99;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        background-color: #fa685e;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 4px;
+        font-family: 'VT323', monospace;
+
+}

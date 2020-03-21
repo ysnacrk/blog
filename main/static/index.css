@@ -1,0 +1,38 @@
+body{
+    background-color: #222222;
+    font-family: 'VT323', monospace;
+}
+.navbar-link {
+    color : #ffcc00 ; 
+    font-size: 36px ;
+    text-decoration: none;
+
+}
+.navbar-link:hover{
+    color : #00b5b4 ; 
+    font-size: 38px ;
+    text-decoration: none;
+}
+h1{
+    color : white ;
+}
+.posts{
+    padding-left:  100px ;
+    padding-top: 50px;
+}
+
+.navbar{
+    padding-top: 30px;
+}
+@media only screen and (max-width: 600px) {
+
+    .posts{
+        padding-left:  10px ;
+        padding-top: 50px;
+        
+    }
+    .posts a {
+        font-size: 24px ;
+    }
+
+}

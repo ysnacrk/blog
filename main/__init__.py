@@ -8,7 +8,7 @@ from flask_ckeditor import CKEditor , CKEditorField
 from flask_wtf import CSRFProtect  
 from logging.handlers import RotatingFileHandler
 from flask_paranoid import Paranoid
-
+from main.config import Config
 
 
 app = Flask(__name__)
@@ -16,17 +16,19 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 #app config
 
+conf = Config()
+
+print(conf.RECAPTCHA_PRIVATE_KEY)
+print(conf.RECAPTCHA_PUBLIC_KEY)
+
+app.config.from_object(conf)
 app.config['CKEDITOR_SERVE_LOCAL'] = True
 app.config['CKEDITOR_HEIGHT'] = 400
 app.config['CKEDITOR_FILE_UPLOADER'] = 'upload'
 app.config['CKEDITOR_ENABLE_CSRF'] = True  
 app.config['UPLOADED_PATH'] = os.path.join(basedir, 'uploads')
-app.config['SECRET_KEY'] =  'c3fd3ca1d862453e82b5f62641a51d4d'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['CKEDITOR_ENABLE_CODESNIPPET'] = True
 app.config['WTF_CSRF_TIME_LIMIT'] = None
-app.config['RECAPTCHA_PRIVATE_KEY'] = ''
-app.config['RECAPTCHA_PUBLIC_KEY'] = ''
 
 # app.config['SESSION_COOKIE_SECURE'] = True  #only production env. 
 
