@@ -14,15 +14,3 @@ Empty for now but hopefully nice articles will come in the future
 # Documentation
 
 The construction and deploy stages of the blog
-
-
-# Sample images
-
-<img src="src/main_page.png" border="0" />
-<img src="src/post.png" border="0" />
-
-
-<!--
-    responsive anlatırken eklenecek
- <img src="src/mobile.png" border="0" />
-<img src="src/mobile2.png" border="0" /> -->
