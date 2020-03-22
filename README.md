@@ -19,7 +19,7 @@ The construction and deploy stages of the blog
 # Sample images
 
 <img src="src/main_page.png" border="0" />
-<img src="src/.png" border="0" />
+<img src="src/post.png" border="0" />
 
 
 <!--
