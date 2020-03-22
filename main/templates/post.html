@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static' , filename = 'post.css' )}}">
 
 
-    <title>{{post.title}}</title>
+    <title>{{post.title}} | Yasin Acıerik</title>
     {{ ckeditor.load_code_theme() }}
 
 
@@ -40,21 +40,22 @@
 
 
         <div class="row header">
-            <h1>
-                {{post.title}}
-            </h1>
 
-            <p>
-                {{post.content|safe}}
-            </p>
+                <h1>{{post.title}}</h1>
+
+        </div>
+
+        <div class="row header">
+
+            {{post.content|safe}}
         </div>
 
         <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1" >© Copyright 2020 Yasin Acıerik</p>
 
             <ul class="list-inline" >
-                <li class="list-inline-item"><a href="#">Twitter</a></li>
-                <li class="list-inline-item"><a href="#">Github</a></li>
+                <li class="list-inline-item"><a href="https://twitter.com/koka_koala/">Twitter</a></li>
+                <li class="list-inline-item"><a href="https://github.com/ysnacrk">Github</a></li>
             </ul>
 
         </footer>

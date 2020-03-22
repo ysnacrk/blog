@@ -18,9 +18,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 conf = Config()
 
-print(conf.RECAPTCHA_PRIVATE_KEY)
-print(conf.RECAPTCHA_PUBLIC_KEY)
-
 app.config.from_object(conf)
 app.config['CKEDITOR_SERVE_LOCAL'] = True
 app.config['CKEDITOR_HEIGHT'] = 400

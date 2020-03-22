@@ -11,13 +11,23 @@ from time import strftime
 
 @app.route("/")
 def index():
-    posts = Post.query.all()
-    return render_template('index.html' , posts = posts)
+    posts = db.session.query(Post).order_by(Post.id.desc()).all()
+    last = db.session.query(Post).order_by(Post.id.desc()).first()
+
+    return render_template('index.html' , posts = posts  , last = last)
 
 @app.route("/about")
 def about():
     return render_template('about.html')
-    
+
+
+@app.route("/projects")
+def projects():
+    return render_template('projects.html')
+
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
 
 @app.route("/post/<int:post_id>/<string:slug>") 
 def get_post(post_id , slug):

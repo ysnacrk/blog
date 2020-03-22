@@ -108,9 +108,9 @@ iframe{
 
     }
     .row p{
-         font-size: 14px;
-         letter-spacing: -0.005em;  
-         line-height: 2.0em ;
+        font-size: 14px;
+        letter-spacing: -0.005em;  
+        line-height: 2.0em ;
     }
     .nav-bar a{
         padding: 0px;
@@ -145,4 +145,4 @@ iframe{
         border-radius: 4px;
         font-family: 'VT323', monospace;
 
-}
+    }

@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static' , filename = 'index.css' )}}">
-    <title>Index</title>
+    <title>Yasin Acıerik | Kişisel Blog</title>
 
 </head>
 <body>
@@ -21,9 +21,9 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo01"  >
                   
-                  <a class="navbar-brand navbar-link" href="#">👽 hakkımda</a>
-                  <a class="navbar-brand navbar-link" href="#" >💻 projeler</a>
-                  <a class="navbar-brand navbar-link" href="#">📪 iletişim</a>
+                  <a class="navbar-brand navbar-link" href="{{url_for('about')}}">👽 hakkımda</a>
+                  <a class="navbar-brand navbar-link" href="{{url_for('projects')}}" >💻 projeler</a>
+                  <a class="navbar-brand navbar-link" href="{{url_for('contact')}}">📪 iletişim</a>
 
                 </div>
             </nav>
@@ -35,11 +35,25 @@
 
         <div class="text-white posts">
             {% for post in posts %}
-                
+                {% if post.id == last.id %}
+                                        
                 <a class="navbar-link" href="/post/{{post.id}}/{{post.slug}}" >
                     <svg width="36" height="36">
-                        <circle cx="18" cy="18" r="15" stroke="red" stroke-width="4" fill="red" />
-                    </svg>  {{ post.title }}  <span class="badge badge-secondary">New</span></a>
+                        <circle cx="14" cy="14" r="12" stroke="red" stroke-width="4" fill="red" />
+                    </svg>  {{ post.title }} 
+
+                    <span class="badge badge-secondary"> New</span>
+                </a>
+                
+                
+                {% else %}
+                <a class="navbar-link" href="/post/{{post.id}}/{{post.slug}}" >
+                    <svg width="36" height="36">
+                        <circle cx="14" cy="14" r="12" stroke="red" stroke-width="4" fill="red" />
+                    </svg>  {{ post.title }} 
+                </a>
+                
+                {% endif %}
                 <br>
                 <br>
             {%endfor%}
