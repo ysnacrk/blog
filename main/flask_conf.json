@@ -1,0 +1,8 @@
+{
+
+	"SECRET_KEY" : "",
+	"SQLALCHEMY_DATABASE_URI" : "sqlite:////<your_db_file_path>/site.db",
+	"RECAPTCHA_PRIVATE_KEY" : "<your_google_recaptcha_private_key>",
+	"RECAPTCHA_PUBLIC_KEY" : "<your_google_recaptcha_public_key>"
+
+}

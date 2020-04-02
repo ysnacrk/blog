@@ -1,6 +1,6 @@
 import json 
 
-with open('/etc/flask_conf.json') as config_file:
+with open('main/flask_conf.json') as config_file:
 	config = json.load(config_file)
 
 

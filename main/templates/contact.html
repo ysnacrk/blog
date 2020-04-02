@@ -12,7 +12,7 @@
 <style>
   body{
 
-    background-color: lightseagreen;
+    background-color: lightgoldenrodyellow;
     font-family: 'VT323', monospace;
     font-size: 48px;
 
@@ -22,15 +22,37 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -50px;
+    margin-top: -200px;
     margin-left: -100px;
+    text-align: center;
+  }
+  .title a {
+    text-decoration: none;
+  }
+  .twitter{
+    color: #1d9dee;
+  }
+
+  .linkedin {
+    color: #0073b0;
+  }
+  .github{
+    color : black;
   }
 
 </style>
 
 <body>
   <div class="title">
-    Coming Soon...
+
+    <a href="{{url_for('index')}}"><-- Anasayfa</a>
+
+    <p><a class="twitter" href="https://twitter.com/koka_koala" target="blank">Twitter</a></p>
+    <p><a class="github" href="https://github.com/ysnacrk" target="blank">Github</a></p>    
+    <p><a class="linkedin" href="https://tr.linkedin.com/in/yasin-ac%C4%B1erik-764b67172" target="blank">Linkedin</a></p>
+    <p style="color: #bc3c29;">ysnacrk@gmail.com</p>
+<br>
+<br>
   </div>
 </body>
 </html>
