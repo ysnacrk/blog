@@ -25,10 +25,6 @@ Variable | Description
  **SQLALCHEMY_DATABASE_URI**|  Where the database file will be stored              
  **RECAPTCHA_PRIVATE_KEY**  | You need google recaptcha keys for secure login  
   **RECAPTCHA_PUBLIC_KEY**   |  You need google recaptcha keys for secure login   
-Markdown | Less | Pretty
---- | --- 
-*Still* | `renders` | **nicely**
-1 | 2 | 3
 
 Create database tables and user
 
