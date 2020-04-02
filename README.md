@@ -18,17 +18,17 @@ Clone repo and run
 
 Open flask conf.json file and set variables
 
-|                     |
-| ------------- | -----:|
-| **SECRET_KEY**      | Secret key that will be used for securely signing the session cookie   |
-| **SQLALCHEMY_DATABASE_URI**     |  Where the database file will be stored     |
-| **RECAPTCHA_PRIVATE_KEY**     | You need google recaptcha keys for secure login    |
-| **RECAPTCHA_PUBLIC_KEY**     |  You need google recaptcha keys for secure login    |
+    |
+--- | --- 
+ **SECRET_KEY**      | Secret key that will be used for securely signing the session cookie  
+ **SQLALCHEMY_DATABASE_URI**     |  Where the database file will be stored     
+ **RECAPTCHA_PRIVATE_KEY**     | You need google recaptcha keys for secure login    
+ **RECAPTCHA_PUBLIC_KEY**     |  You need google recaptcha keys for secure login    
 
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
+        |
+
+*Still* | `renders`
+1 | 2    
 
 Create database tables and user
 
